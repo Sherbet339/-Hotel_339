@@ -1,11 +1,12 @@
 var http = require('http');
 var url = require('url');
 
-const {room_detail, create_room} = require('./room');
-const {customer_detail, create_customer} = require('./customer');
+const {loadRoom,room_detail, create_room} = require('./room');
+const {loadCustomer,customer_detail, create_customer} = require('./customer');
 const {create_booking, booking_status} = require('./booking');
 
-
+loadRoom();
+loadCustomer();
 //local host
 http.createServer(function (req, res) {
 
@@ -18,7 +19,7 @@ http.createServer(function (req, res) {
     switch(request_path.pathname) {
         case '/room_detail':
             try {
-                data = room_detail(request_path.query.room_id, request_path.query.type, request_path.query.price);
+                data = room_detail(request_path.query.room_id);
             } catch(err) {
                 message += err;
                 console.log(err);
@@ -37,6 +38,7 @@ http.createServer(function (req, res) {
         case '/create_room':
             try {
                 data = create_room(request_path.query.room_id, request_path.query.type, request_path.query.price);
+                message += 'Created!!'
             } catch(err) {
                 message += err;
                 console.log(err);
@@ -46,6 +48,7 @@ http.createServer(function (req, res) {
         case '/create_customer':
             try {
                 data = create_customer(request_path.query.customer_id, request_path.query.first_name, request_path.query.last_name, request_path.query.phone);
+                message += 'Created!!'
             } catch(err) {
                 message += err;
                 console.log(err);
