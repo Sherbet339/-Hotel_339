@@ -1,7 +1,7 @@
 var http = require('http');
 var url = require('url');
 
-const {loadData, room_detail, customer_detail, create_room, create_customer, create_booking, booking_status} = require('./hotel');
+const {loadData, room_detail, customer_detail, create_room, create_customer, create_booking, booking_status} = require('./room');
 
 loadData();
 
