@@ -1,8 +1,9 @@
 var http = require('http');
 var url = require('url');
 
-const {loadData, room_detail, customer_detail, create_room, create_customer, create_booking, booking_status} = require('./room');
-
+const {loadData, room_detail, create_room} = require('./room');
+const {loadData, customer_detail, create_customer} = require('./customer');
+const {loadData, create_booking, booking_status} = require('./booking');
 loadData();
 
 //local host
