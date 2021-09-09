@@ -1,10 +1,10 @@
 var http = require('http');
 var url = require('url');
 
-const {loadData, room_detail, create_room} = require('./room');
-const {loadData, customer_detail, create_customer} = require('./customer');
-const {loadData, create_booking, booking_status} = require('./booking');
-loadData();
+const {room_detail, create_room} = require('./room');
+const {customer_detail, create_customer} = require('./customer');
+const {create_booking, booking_status} = require('./booking');
+
 
 //local host
 http.createServer(function (req, res) {
