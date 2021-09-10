@@ -11,7 +11,7 @@ fs.readFile('room.txt',await function (err, filedata) {
     room_lines.forEach((line) => {
         let dat = line.split(',');
         rooms.set(dat[0], [dat[1], dat[2]])
-         console.log('dat',dat)
+        // console.log('dat',dat)
     })
 
     
@@ -56,4 +56,3 @@ module.exports = {
     room_detail: room_detail,
     create_room: create_room
 };
-loadRoom();

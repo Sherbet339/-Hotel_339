@@ -3,10 +3,11 @@ var url = require('url');
 
 const {loadRoom,room_detail, create_room} = require('./room');
 const {loadCustomer,customer_detail, create_customer} = require('./customer');
-const {create_booking, booking_status} = require('./booking');
+const {loadBooking,create_booking, booking_status} = require('./booking');
 
 loadRoom();
 loadCustomer();
+loadBooking();
 //local host
 http.createServer(function (req, res) {
 
@@ -57,7 +58,8 @@ http.createServer(function (req, res) {
 
         case '/create_booking':
             try {
-                data = create_booking(request_path.query.checkin_date, request_path.query.checkout_date, total_price);
+                data = create_booking(request_path.query.room_id, request_path.query.customer_id, request_path.query.checkin_date, request_path.query.checkout_date);
+                message += 'Created!!'
             } catch(err) {
                 message += err;
                 console.log(err);
